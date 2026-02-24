@@ -4,7 +4,7 @@ node('agent') {
             sh '''
             echo "Building Java project..."
             ls
-            cd Password\\ Protection
+            cd "Password Protection"
             mkdir -p build
             javac -d build src/*.java
             echo "Build successful"
@@ -14,7 +14,7 @@ node('agent') {
         stage('Test') {
             sh '''
             echo "Running JUnit tests for File-Encrypter..."
-            cd Password\\ Protection
+            cd "Password Protection"
 
             if [ ! -f junit-platform-console-standalone.jar ]; then
                 echo "Downloading JUnit..."
@@ -34,7 +34,7 @@ node('agent') {
         stage('Deploy') {
             sh '''
             echo "Deploying (Packaging) File-Encrypter Application..."
-            cd Password\\ Protection
+            cd "Password Protection"
             jar cf FileEncrypter.jar -C build .
             echo "Deployment successful - Artifact ready"
             '''
