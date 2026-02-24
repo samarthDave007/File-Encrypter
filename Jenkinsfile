@@ -1,4 +1,8 @@
 node('agent') {
+
+    // CLEAN WORKSPACE (this replaces "Delete workspace before build")
+    deleteDir()
+
     stage('Build') {
         sh '''
         echo "Building Java project..."
@@ -16,7 +20,7 @@ node('agent') {
 
         if [ ! -f junit-platform-console-standalone.jar ]; then
             curl -L -o junit-platform-console-standalone.jar \
-            https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.10.0/junit-platform-console-standalone-1.10.0.jar
+            https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.10.0.jar
         fi
 
         mkdir -p test-build
