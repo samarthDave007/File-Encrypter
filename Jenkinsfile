@@ -1,4 +1,4 @@
-node {
+node('agent') {
     try {
         stage('Build') {
             sh '''
